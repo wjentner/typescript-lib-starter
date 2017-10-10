@@ -99,7 +99,7 @@
     "@types/node": "7.0.31",
     "awesome-typescript-loader": "3.2.1",
     "commitizen": "2.9.6",
-    "cross-var": "1.0.3",
+    "cross-var": "1.1.0",
     "cz-conventional-changelog": "2.0.0",
     "gzip-size-cli": "2.0.0",
     "husky": "0.14.1",
