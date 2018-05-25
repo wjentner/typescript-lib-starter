@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://www.github.com/wjentner/typescript-lib-starter/compare/v1.7.0...v1.8.0) (2018-05-25)
+
+
+### Bug Fixes
+
+* **lint:** remove rules clashing with prettier ([40e1116](https://www.github.com/wjentner/typescript-lib-starter/commit/40e1116))
+* **precommit:** properly call prettier ([9d14f0f](https://www.github.com/wjentner/typescript-lib-starter/commit/9d14f0f))
+
+
+### Features
+
+* **tsc:** enable esnext modules for import() support ([d0261c4](https://www.github.com/wjentner/typescript-lib-starter/commit/d0261c4))
+* **vscode:** add vscode settings nad recommendet plugins ([0f5fc80](https://www.github.com/wjentner/typescript-lib-starter/commit/0f5fc80))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://www.github.com/Hotell/typescript-lib-starter/compare/v1.6.0...v1.7.0) (2017-06-17)
 
