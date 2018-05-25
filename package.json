@@ -8,7 +8,7 @@
   "types": "@types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/Hotell/typescript-lib-starter"
+    "url": "https://www.github.com/wjentner/typescript-lib-starter"
   },
   "author": "Martin Hochel",
   "license": "MIT",
