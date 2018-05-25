@@ -1,7 +1,12 @@
-const { resolve } = require('path')
+const {
+  resolve
+} = require('path')
 const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const { getIfUtils, removeEmpty } = require('webpack-config-utils')
+const {
+  getIfUtils,
+  removeEmpty
+} = require('webpack-config-utils')
 
 const packageJSON = require('./package.json')
 const packageName = normalizePackageName(packageJSON.name)
@@ -29,35 +34,34 @@ const RULES = {
   ts: {
     test: /\.tsx?$/,
     include: /src/,
-    use: [
-      {
-        loader: 'awesome-typescript-loader',
-        options: {
-          // we don't want any declaration file in the bundles
-          // folder since it wouldn't be of any use ans the source
-          // map already include everything for debugging
-          // This cannot be set because -> Option 'declarationDir' cannot be specified without specifying option 'declaration'.
-          // declaration: false,
-        },
+    use: [{
+      loader: 'awesome-typescript-loader',
+      options: {
+        // we don't want any declaration file in the bundles
+        // folder since it wouldn't be of any use ans the source
+        // map already include everything for debugging
+        // This cannot be set because -> Option 'declarationDir' cannot be specified without specifying option 'declaration'.
+        // declaration: false,
       },
-    ],
+    }, ],
   },
   tsNext: {
     test: /\.tsx?$/,
     include: /src/,
-    use: [
-      {
-        loader: 'awesome-typescript-loader',
-        options: {
-          target: 'es2017',
-        },
+    use: [{
+      loader: 'awesome-typescript-loader',
+      options: {
+        target: 'es2017',
       },
-    ],
+    }, ],
   },
 }
 
 const config = (env = DEFAULT_ENV) => {
-  const { ifProd, ifNotProd } = getIfUtils(env)
+  const {
+    ifProd,
+    ifNotProd
+  } = getIfUtils(env)
   const PLUGINS = removeEmpty([
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
@@ -65,11 +69,12 @@ const config = (env = DEFAULT_ENV) => {
     ifProd(
       new UglifyJsPlugin({
         sourceMap: true,
-        compress: {
-          screw_ie8: true,
-          warnings: false,
+        uglifyOptions: {
+          compress: {
+            warnings: false,
+          }
         },
-        output: { comments: false },
+        extractComments: false
       })
     ),
     new webpack.LoaderOptionsPlugin({
@@ -77,7 +82,9 @@ const config = (env = DEFAULT_ENV) => {
       minimize: true,
     }),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: ifProd('"production"', '"development"') },
+      'process.env': {
+        NODE_ENV: ifProd('"production"', '"development"')
+      },
     }),
   ])
 
